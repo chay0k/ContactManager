@@ -1,0 +1,29 @@
+﻿@model WebApplication2.Models.User
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DateOfBirh" class="control-label">Date of birh</label>
+        <input type="date" asp-for="DateOfBirh" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Married" class="control-label">Married</label>
+        <input type="checkbox" asp-for="Married" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label">Phone</label>
+        <input type="tel" asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary" class="control-label">Salary</label>
+        <input type="number" asp-for="Salary" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-default" />
+    </div>
+</form>

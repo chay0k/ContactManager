@@ -1,0 +1,10 @@
+﻿@model WebApplication2.Models.FileModel
+@{
+    ViewData["Title"] = "Добавление файла";
+}
+<h3>Choose your file</h3>
+<form asp-action="LoadCsv" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" /><br>
+    <input type="submit" value="Load" />
+</form>
+

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplication2.Models.User>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Users list</h2>
+<a asp-action="Create">Add user</a>
+<a asp-action="LoadCSV">Load .CSV file</a>
+
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label">Name: </label>
+        <input name="name" class="form-control" />
+
+        <label class="control-label">Id: </label>
+        <input name="id" class="form-control"></>
+
+        <label class="control-label">Married: </label>
+        <input name="married" class="form-control"></>
+
+        <label class="control-label">Phone: </label>
+        <input name="phone" class="form-control"></>
+
+        <input type="submit" value="Filter" class="btn btn-default" />
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <td>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.IdSort">
+                Id
+            </a>
+        </td>
+        <td>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">
+                Name
+            </a>
+        </td>
+        <td>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateOfBirthSort">
+                Date of birth
+            </a>
+        </td>
+        <td>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.MarriedSort">
+                Married
+            </a>
+        </td>
+        <td>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.PhoneSort">
+                Phone
+            </a>
+        </td>
+        <td>
+            <a asp-route-sortOrder="@ViewBag.SalarySort">
+                Salary
+            </a>
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.DateOfBirh</td>
+        <td>@item.Married</td>
+        <td>@item.Phone</td>
+        <td>@item.Salary</td>
+        <td>
+            <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+</table>
